@@ -30,7 +30,7 @@ let natG = function() {
             .metadata()
             .then(meta => {
               return sharp("./pod.jpg")
-                .resize(Math.round((meta.height * 16) / 9), meta.height)
+                .resize(Math.round(meta.height * (16 / 9)), meta.height)
                 .toFile("./podsq.jpg")
                 .then(() => {
                   fs.unlinkSync("./pod.jpg");
