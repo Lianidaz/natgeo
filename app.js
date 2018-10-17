@@ -60,7 +60,7 @@ app.get("/desktop", (req, res) => {
 });
 
 app.get("/mobi", (req, res) => {
-  res.sendFile("./podsq.jpg");
+  res.sendFile("/opt/natgeo/podsq.jpg");
 });
 
 app.listen(3383);
