@@ -9,7 +9,7 @@ let url = "";
 let natG = function() {
   natgeo.getPhotoOfDay().then(result => {
     //   console.log(result.data[0].attributes.image.renditions);
-    fs.unlinkSync('./podsq.jpg')
+    if (fs.existsSync('./podsq.jpg')) fs.unlinkSync('./podsq.jpg')
     let pod = fs.createWriteStream("pod.jpg");
     let rends = result.data[0].attributes.image.renditions;
     let width = 0;
