@@ -45,15 +45,15 @@ let natG = function() {
 natG();
 
 setInterval(natG, 3600000);
-app.use("/", (req, res, next) => {
-  console.log(
-    req.connection.remoteAddress,
-    req.path,
-    req.method,
-    res.statusCode
-  );
-  next();
-});
+// app.use("/", (req, res, next) => {
+//   console.log(
+//     req.connection.remoteAddress,
+//     req.path,
+//     req.method,
+//     res.statusCode
+//   );
+//   next();
+// });
 
 app.get("/desktop", (req, res) => {
   res.redirect(url);
