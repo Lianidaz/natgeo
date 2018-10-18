@@ -25,3 +25,7 @@ Listens on port 3383 by default, feel free to change it in the last line of app.
 
 ## IMPORTANT!
 If you would like to use it with IFTTT app - you must put it behind reverse proxy with valid certificate.
+
+### Disclamer
+
+Uses national-geographic-api npm package by crisboarna, use reasonably.
