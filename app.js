@@ -56,7 +56,7 @@ app.use("/", (req, res, next) => {
 });
 
 app.get("/desktop", (req, res) => {
-  res.sendile(path.resolve('./pod.jpg'));
+  res.sendFile(path.resolve('./pod.jpg'));
 });
 
 app.get("/mobi", (req, res) => {

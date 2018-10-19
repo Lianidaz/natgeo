@@ -17,11 +17,11 @@ Listens on port 3383 by default, feel free to change it in the last line of app.
 ## Endpoints:
 
 ### /desktop
-> redirects to maximum resolution photo on National Geographic website. Usable with bash/shell/ps1 scripts to set up as a wallpaper
+> Returns 16:9 picture of the day. Usable with bash/shell/ps1 scripts to set up as a wallpaper
 
 
 ### /mobi
-> returns an image cropped to be used as adequate mobile device background
+> Returns an image cropped to be used as adequate mobile device background, ratio is 1:0.7
 
 ## IMPORTANT!
 If you would like to use it with IFTTT app - you must put it behind reverse proxy with valid certificate.
