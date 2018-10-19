@@ -62,9 +62,11 @@ app.get("/desktop", (req, res) => {
 app.get("/mobi", (req, res) => {
   res.sendFile("/opt/natgeo/podsq.jpg");
 });
+const util = require('util')
 
 app.get('/reqtest',(req,res)=>{
-  res.send(JSON.stringify(req))
+  res.send(util.inspect(req, {showHidden: false, depth: null}))
+  
 })
 
 app.listen(3383);
