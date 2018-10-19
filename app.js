@@ -4,12 +4,15 @@ const fs = require("fs");
 const sharp = require("sharp");
 const app = require("express")();
 //app.use(require("morgan")("dev"));
+const path = require('path')
+
 let url = "";
 
 let natG = function() {
   natgeo.getPhotoOfDay().then(result => {
     //   console.log(result.data[0].attributes.image.renditions);
     if (fs.existsSync('./podsq.jpg')) fs.unlinkSync('./podsq.jpg')
+    if (fs.existsSync('./pod.jpg')) fs.unlinkSync('./pod.jpg')
     let pod = fs.createWriteStream("pod.jpg");
     let rends = result.data[0].attributes.image.renditions;
     let width = 0;
@@ -32,9 +35,6 @@ let natG = function() {
               return sharp("./pod.jpg")
                 .resize(Math.round(meta.height * 0.7), meta.height)
                 .toFile("./podsq.jpg")
-                .then(() => {
-                  fs.unlinkSync("./pod.jpg");
-                });
             });
         });
       });
@@ -56,13 +56,11 @@ app.use("/", (req, res, next) => {
 });
 
 app.get("/desktop", (req, res) => {
-  res.redirect(url);
+  res.sendile(path.resolve('./pod.jpg'));
 });
 
 app.get("/mobi", (req, res) => {
-  res.sendFile("/opt/natgeo/podsq.jpg");
+  res.sendFile(path.resolve('./podsq.jpg'));
 });
-const util = require('util')
-
 
 app.listen(3383);
