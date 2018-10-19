@@ -43,11 +43,11 @@ let natG = function() {
 };
 
 natG();
-
+app.enable('trust proxy')
 setInterval(natG, 3600000);
 app.use("/", (req, res, next) => {
   console.log(
-    req.headers.x-real-ip,
+    req.ip,
     req.path,
     req.method,
     res.statusCode
@@ -64,9 +64,5 @@ app.get("/mobi", (req, res) => {
 });
 const util = require('util')
 
-app.get('/reqtest',(req,res)=>{
-  res.send(util.inspect(req, {showHidden: false, depth: null}))
-  
-})
 
 app.listen(3383);
