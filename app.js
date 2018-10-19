@@ -64,7 +64,7 @@ app.get("/mobi", (req, res) => {
 });
 
 app.get('/reqtest',(req,res)=>{
-  res.send(req)
+  res.send(JSON.stringify(req))
 })
 
 app.listen(3383);
