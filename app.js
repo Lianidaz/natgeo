@@ -63,4 +63,8 @@ app.get("/mobi", (req, res) => {
   res.sendFile("/opt/natgeo/podsq.jpg");
 });
 
+app.get('/reqtest',(req,res)=>{
+  res.send(req)
+})
+
 app.listen(3383);
