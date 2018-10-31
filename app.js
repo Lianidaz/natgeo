@@ -48,7 +48,7 @@ let natG = function() {
 
 natG();
 app.enable("trust proxy");
-setInterval(natG, 3600000);
+// setInterval(natG, 3600000);
 app.use("/", (req, res, next) => {
   console.log(req.ip, req.path, req.method, res.statusCode);
   next();
