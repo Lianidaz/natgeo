@@ -16,6 +16,7 @@ let url = "";
 
 let natG = function() {
   natgeo.getPhotoOfDay().then(result => {
+    console.log("Got responce, removing old pics");
     if (fs.existsSync("./podsq.jpg")) fs.unlinkSync("./podsq.jpg");
     if (fs.existsSync("./pod.jpg")) fs.unlinkSync("./pod.jpg");
     let pod = fs.createWriteStream("pod.jpg");
@@ -28,7 +29,7 @@ let natG = function() {
         height = u.height;
       }
     }
-
+    console.log("Processing url", url);
     http.get(url, resp => {
       resp.pipe(pod);
       pod.on("finish", () => {
