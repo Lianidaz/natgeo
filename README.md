@@ -1,31 +1,26 @@
 # natgeo
-NatGeo Photo of the day server
 
-Useful to autoupdae you desktop background
+NatGeo Photo of the day serverless function
+
+Useful to autoupdate your desktop background
 
 ## Installation
 
-You should have NodeJS 6+ installed, then:
+Made for AWS Lambda
 
-``` sh
-git pull git@github.com:Lianidaz/natgeo.git
-cd natgeo
-npm i
+Zip the function for upload
+Use terraform manifset in `tf` directory to deploy
+
+```bash
+cd function
+npm install node-fetch aws-sdk
+npm install --arch=x64 --platform=linux --target=10.17.0  sharp
+zip -r function.zip .
+cd ../tf
+terraform init
+terraform apply
 ```
-Listens on port 3383 by default, feel free to change it in the last line of app.js
 
-## Endpoints:
+Naturally, be sure to have AWS credentials as described in AWS-CLI docs
 
-### /desktop
-> Returns 16:9 picture of the day. Usable with bash/shell/ps1 scripts to set up as a wallpaper
-
-
-### /mobi
-> Returns an image cropped to be used as adequate mobile device background, ratio is 1:0.7
-
-## IMPORTANT!
-If you would like to use it with IFTTT app - you must put it behind reverse proxy with valid certificate.
-
-### Disclamer
-
-Uses national-geographic-api npm package by crisboarna, use reasonably.
+Your croped photos will end up in a public bucket you created.
