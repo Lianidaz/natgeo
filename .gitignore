@@ -8,7 +8,7 @@ yarn-error.log*
 **/.terraform
 function/function.zip
 
-
+.DS_Store
 *.jpg
 # Runtime data
 pids
